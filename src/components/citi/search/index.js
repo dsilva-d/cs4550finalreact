@@ -5,7 +5,7 @@ const Search = () => {
   return (
     <a href="search.html"
     className={`btn btn-primary btn-block rounded-pill`}>
-    Search</a>
+    Search <i className={`fa fa-solid fa-search`}/> </a>
   );
 }
 export default Search;
