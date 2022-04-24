@@ -1,10 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import routes from "./routes.json";
+//import routes from "./routes.json";
+import {useSelector} from "react-redux";
 
 import RouteItem from "./routeItem.js";
 
 const RouteSummary = () => {
+    const routes = useSelector((state) => state);
     return(
       <>
       <ul>

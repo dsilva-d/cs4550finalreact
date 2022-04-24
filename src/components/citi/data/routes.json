@@ -1,0 +1,20 @@
+[
+  {
+    "_id": 123,
+    "network": "test-network",
+  "origin": {
+  "stationName": "test-origin-station",
+  "bikes": 5
+  },
+  "destination": {
+    "stationName": "test-destination-station",
+    "docks": 8
+  },
+  "routeName": "Test Route",
+  "type": "Commuting",
+  "rating": 3,
+  "postedBy": {
+  "username": "test-user",
+  "uid": "12345"
+  }
+  }]
