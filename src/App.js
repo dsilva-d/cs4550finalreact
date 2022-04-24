@@ -3,22 +3,23 @@ import './App.css';
 import './vendors/bootstrap/css/bootstrap.min.css';
 import './vendors/bootstrap/bootstrap.min.css';
 import './vendors/fontawesome/css/all.min.css';
-import Search from "./components/search";
+import Search from "./components/citi/search";
+import Profile from "./components/citi/profile";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
 function App() {
   return (
-    <BrowserRouter>
-            <div className="container">
-                <Routes>
-                 <Route path="/">
-                   <Route path="search"
-                          element={<Search/>}/>
-                 </Route>
-                </Routes>
-            </div>
-        </BrowserRouter>
+  <BrowserRouter>
+  <div className="container">
+    <Routes>
+        <Route path="/">
+            <Route path="search" element={<Search/>}/>
+            <Route path="profile" element={<Profile/>}/>
+        </Route>
+    </Routes>
+  </div>
+  </BrowserRouter>
   );
 }
 
