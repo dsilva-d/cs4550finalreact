@@ -2,6 +2,7 @@ import {Outlet} from "react-router-dom";
 
 import Search from "./search";
 import Profile from "./profile";
+import RouteSummary from "./routes";
 
 const Citi = () => {
   return (
@@ -11,9 +12,11 @@ const Citi = () => {
                 </div>
                 <div className="col-8">
                     <h1 style={{justifyContent: 'center', alignItems: 'center'}}>
-                        Cycle
+                        Cycle!
                     </h1>
+                    <RouteSummary/>
                     <Outlet/>
+
                 </div>
                 <div className="col-2">
                     <Profile/>
