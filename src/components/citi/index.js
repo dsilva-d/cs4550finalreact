@@ -6,6 +6,7 @@ import Profile from "./profile";
 const Citi = () => {
   return (
     <Search/>
+    <Profile/>
     <Outlet/>
   );
 };
