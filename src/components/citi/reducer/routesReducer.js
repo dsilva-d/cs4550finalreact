@@ -4,7 +4,7 @@ import {DELETE_ROUTE, FIND_ALL_ROUTES, CREATE_ROUTE, UPDATE_ROUTE}
 const tuitsReducer = (state, action) => {
     switch (action.type) {
         case FIND_ALL_ROUTES:
-            return action.routes;
+            return action.bikeroutes;
         // case 'like-tuit':
         //     return state.map(tuit => {
         //         if (tuit._id === action.tuit._id) {
@@ -20,21 +20,16 @@ const tuitsReducer = (state, action) => {
         //             return tuit;
         //         }
         //     });
-        case DELETE_ROUTE:
-            return state.filter(
-                route => route._id !== action.route._id);
-        case CREATE_ROUTE:
-            return [
-                ...state,
-                action.newRoute
-            ];
+//        case DELETE_ROUTE:
+//            return state.filter(
+//                bikeroute => bikeroute._id !== action.bikeroute._id);
+//        case CREATE_ROUTE:
+//            return [
+//                ...state,
+//                action.newRoute
+//            ];
         default:
             return state
-        case UPDATE_ROUTE:
-            return state.map(
-                tuit => tuit._id === action.tuit._id ?
-                    action.tuit : tuit);
-
     }
 }
 export default tuitsReducer;
