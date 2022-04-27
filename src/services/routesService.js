@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const findAllRoutes = async () => {
     const response = await axios.get('https://cs4550-final-node.herokuapp.com/api/routes');
-    return response.data
+    return response.data;
 }
 
 //export const createRoute = async (dispatch, bikeroute) => {

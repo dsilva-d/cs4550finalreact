@@ -4,14 +4,10 @@ import {useDispatch, useSelector} from "react-redux";
 
 const Search = () => {
 
-    const bikeroutes = useSelector(
-            state => state.bikeroutes);
-        const dispatch = useDispatch();
-        useEffect(() =>
-                findAllRoutesAction(dispatch),
-            [dispatch]);
+    const bikeroutes = useSelector(state => state);
+    const dispatch = useDispatch();
+    useEffect(() => {findAllRoutesAction(dispatch)}, [dispatch]);
     console.log(bikeroutes);
-
         return <>
             <div className={`row`}>
                 <div className={`col-2`}>

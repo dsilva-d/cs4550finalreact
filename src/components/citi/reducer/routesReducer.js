@@ -29,7 +29,7 @@ const tuitsReducer = (state = [], action) => {
 //                action.newRoute
 //            ];
         default:
-            return state
+            return state;
     }
 }
 export default tuitsReducer;
