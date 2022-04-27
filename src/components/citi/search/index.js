@@ -17,7 +17,7 @@ const Search = () => {
                 <div className={`col-2`}>
                 </div>
                 <div className={`col-10` }>
-                    {bikeroutes.map && bikeroutes.map(bikeroutes =>
+                    {bikeroutes && bikeroutes.map(bikeroutes =>
                     <>
                     <p className={`p-0 m-0`}>
                         <span
