@@ -2,9 +2,7 @@ import React, {useEffect, useState} from "react";
 import {findAllRoutesAction} from "../../../actions/routeActions";
 import {useDispatch, useSelector} from "react-redux";
 
-const Search = (
-    {bikeroutes:[]}
-    ) => {
+const Search = () => {
 
     const bikeroutes = useSelector(
             state => state.bikeroutes);
@@ -19,13 +17,16 @@ const Search = (
                 <div className={`col-2`}>
                 </div>
                 <div className={`col-10` }>
-                    bikeroutes.map && bikeroutes.map(bikeroutes =>
+                    {bikeroutes.map && bikeroutes.map(bikeroutes =>
+                    <>
                     <p className={`p-0 m-0`}>
                         <span
                             className={`text-white fw-bold`}>{bikeroutes.routeName}
                         </span>
                     </p>
-                    <p className={`fw-bold p-0 m-0`}>{bikeroutes.origin.stationName} -> {bikeroutes.destination.stationName}</p>)
+                    <p className={`fw-bold p-0 m-0`}>{bikeroutes.origin.stationName} -> {bikeroutes.destination.stationName}</p>
+                    </>
+                    )}
                 </div>
             </div>
         </>

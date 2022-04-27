@@ -1,13 +1,9 @@
 import axios from "axios";
 
 
-export const findAllRoutes = async (dispatch) => {
+export const findAllRoutes = async () => {
     const response = await axios.get('https://cs4550-final-node.herokuapp.com/api/routes');
-    console.log(response.data);
-    dispatch({
-        type: 'FIND_ALL_ROUTES',
-        bikeroutes: response.data
-    })
+    return response.data
 }
 
 //export const createRoute = async (dispatch, bikeroute) => {

@@ -1,7 +1,7 @@
 import {DELETE_ROUTE, FIND_ALL_ROUTES, CREATE_ROUTE, UPDATE_ROUTE}
     from "../../../actions/routeActions";
 
-const tuitsReducer = (state, action) => {
+const tuitsReducer = (state = [], action) => {
     switch (action.type) {
         case FIND_ALL_ROUTES:
             return action.bikeroutes;

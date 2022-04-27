@@ -15,12 +15,10 @@ export const FIND_ALL_ROUTES = 'FIND_ALL_ROUTES';
 //    })
 //}
 export const findAllRoutesAction = async (dispatch) => {
-
     const routes = await service.findAllRoutes();
-    console.log(routes);
     dispatch({
         type: FIND_ALL_ROUTES,
-        routes
+        bikeroutes: routes
     });
 }
 //export const updateRoute = async (dispatch, route) => {
