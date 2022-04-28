@@ -3,12 +3,11 @@ import './App.css';
 import './vendors/bootstrap/css/bootstrap.min.css';
 import './vendors/bootstrap/bootstrap.min.css';
 import './vendors/fontawesome/css/all.min.css';
-import Search from "./components/search-page";
+import Search from "./components/search";
 import Profile from "./components/citi/profile";
 import Citi from "./components/citi"
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-
 
 function App() {
   return (

@@ -17,22 +17,24 @@ const Search = () => {
     console.log(bikeroutes);
     return <Provider store={store}>
         <>
-            <div className={`row`}>
-                <div className={`col-2`}>
-                </div>
-                <div className={`col-10`}>
-                    {bikeroutes && bikeroutes.map(bikeroutes =>
-                        <>
-                            <p className={`p-0 m-0`}>
+
+            <div>
+
+
+            </div>
+            <div>
+                {bikeroutes && bikeroutes.map(bikeroutes =>
+                    <>
+                        <p className={`p-0 m-0`}>
                         <span
                             className={`text-white fw-bold`}>{bikeroutes.routeName}
                         </span>
-                            </p>
-                            <p className={`fw-bold p-0 m-0`}>{bikeroutes.origin.stationName} -> {bikeroutes.destination.stationName}</p>
-                        </>
-                    )}
-                </div>
+                        </p>
+                        <p className={`fw-bold p-0 m-0`}>{bikeroutes.origin.stationName} -> {bikeroutes.destination.stationName}</p>
+                    </>
+                )}
             </div>
+
         </>
     </Provider>
 }
