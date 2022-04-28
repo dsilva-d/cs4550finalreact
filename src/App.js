@@ -3,7 +3,7 @@ import './App.css';
 import './vendors/bootstrap/css/bootstrap.min.css';
 import './vendors/bootstrap/bootstrap.min.css';
 import './vendors/fontawesome/css/all.min.css';
-import Search from "./components/citi/search";
+import Search from "./components/search-page";
 import Profile from "./components/citi/profile";
 import Citi from "./components/citi"
 

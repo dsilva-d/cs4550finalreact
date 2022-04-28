@@ -1,5 +1,5 @@
 import {DELETE_ROUTE, FIND_ALL_ROUTES, CREATE_ROUTE, UPDATE_ROUTE}
-    from "../../../actions/routeActions";
+    from "../../actions/routeActions";
 
 const tuitsReducer = (state = [], action) => {
     switch (action.type) {

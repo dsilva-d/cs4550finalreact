@@ -1,31 +1,40 @@
 import React, {useEffect, useState} from "react";
-import {findAllRoutesAction} from "../../../actions/routeActions";
-import {useDispatch, useSelector} from "react-redux";
+import {findAllRoutesAction} from "../../actions/routeActions";
+import {Provider, useDispatch, useSelector} from "react-redux";
+import routesReducer from "../reducer/routesReducer";
+import {createStore} from "redux";
+
+const reducer = routesReducer;
+const store = createStore(reducer);
 
 const Search = () => {
 
     const bikeroutes = useSelector(state => state);
     const dispatch = useDispatch();
-    useEffect(() => {findAllRoutesAction(dispatch)}, [dispatch]);
+    useEffect(() => {
+        findAllRoutesAction(dispatch)
+    }, [dispatch]);
     console.log(bikeroutes);
-        return <>
+    return <Provider store={store}>
+        <>
             <div className={`row`}>
                 <div className={`col-2`}>
                 </div>
-                <div className={`col-10` }>
+                <div className={`col-10`}>
                     {bikeroutes && bikeroutes.map(bikeroutes =>
-                    <>
-                    <p className={`p-0 m-0`}>
+                        <>
+                            <p className={`p-0 m-0`}>
                         <span
                             className={`text-white fw-bold`}>{bikeroutes.routeName}
                         </span>
-                    </p>
-                    <p className={`fw-bold p-0 m-0`}>{bikeroutes.origin.stationName} -> {bikeroutes.destination.stationName}</p>
-                    </>
+                            </p>
+                            <p className={`fw-bold p-0 m-0`}>{bikeroutes.origin.stationName} -> {bikeroutes.destination.stationName}</p>
+                        </>
                     )}
                 </div>
             </div>
         </>
+    </Provider>
 }
 // return (
 //   <a href="search.html"

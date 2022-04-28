@@ -1,13 +1,9 @@
 import {Outlet} from "react-router-dom"
-import routesReducer from "./reducer/routesReducer";
+import routesReducer from "../reducer/routesReducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import logo from './images/citi.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import Search from "./search";
-import RouteSummary from "./routes";
-import Profile from "./profile";
 
 const reducer = routesReducer;
 const store = createStore(reducer);
@@ -15,7 +11,7 @@ const store = createStore(reducer);
 const Citi = () => {
     return (
         <Provider store={store}>
-            <nav className="navbar navbar-light bg-white flex-fill">
+            <nav className="navbar navbar-light bg-white flex-fill rounded-bottom">
                 <div className="container-fluid float-end d-flex flex-row align-items-start">
                     <div className="row">
                         <a className="navbar-brand">APP_NAME</a>
@@ -37,7 +33,7 @@ const Citi = () => {
                 <div className="input-group input-group-lg pt-2">
                     <input type="text" className="form-control" placeholder="Enter a city or station"
                            aria-label="Location" aria-describedby="basic-addon2"/>
-                    <button className="btn btn-primary" type="button" id="button-addon2">Find Routes</button>
+                    <a href="search" className="btn btn-primary" type="button" id="button-addon2">Find Routes</a>
                 </div>
             </div>
             {/*The cards can be their own component too, to make it easier to not show them unless logged in*/}
