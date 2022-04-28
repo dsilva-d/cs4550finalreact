@@ -1,8 +1,11 @@
-import {DELETE_ROUTE, FIND_ALL_ROUTES, CREATE_ROUTE, UPDATE_ROUTE}
+import {DELETE_ROUTE, FIND_NETWORK, FIND_ALL_ROUTES, CREATE_ROUTE, UPDATE_ROUTE}
     from "../../actions/routeActions";
 
 const tuitsReducer = (state = [], action) => {
     switch (action.type) {
+        case FIND_NETWORK:
+            return action.bikeshareNetworks
+
         case FIND_ALL_ROUTES:
             return action.bikeroutes;
         // case 'like-tuit':

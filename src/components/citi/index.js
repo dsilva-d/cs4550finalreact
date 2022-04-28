@@ -26,7 +26,7 @@ const Citi = () => {
             </nav>
             {/*Banner image, can use personal design*/}
             <div className="w-100 pt-2">
-                <img src={logo} className="img-fluid"/>
+                <img src={logo} className="img-fluid rounded"/>
             </div>
             {/*Search bar can be its own component*/}
             <div>

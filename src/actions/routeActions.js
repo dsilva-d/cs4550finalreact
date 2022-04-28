@@ -4,6 +4,7 @@ import * as service from '../services/routesService';
 
 //export const CREATE_ROUTE = 'CREATE_ROUTE';
 export const FIND_ALL_ROUTES = 'FIND_ALL_ROUTES';
+export const FIND_NETWORK = 'FIND_NETWORK';
 //export const UPDATE_ROUTE = 'UPDATE_ROUTE';
 //export const DELETE_ROUTE = 'DELETE_ROUTE';
 
@@ -20,6 +21,13 @@ export const findAllRoutesAction = async (dispatch) => {
         type: FIND_ALL_ROUTES,
         bikeroutes: routes
     });
+}
+export const findNetworkByNameAction = async (dispatch) => {
+    const networks = await service.findNetworkById();
+    dispatch({
+        type: FIND_NETWORK,
+        bikeshareNetworks: networks
+    })
 }
 //export const updateRoute = async (dispatch, route) => {
 //    const status = await service.updateRoute(route);
