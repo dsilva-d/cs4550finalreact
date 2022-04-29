@@ -6,11 +6,6 @@ export const findAllRoutes = async () => {
     return response.data;
 }
 
-export const findNetworkById = async () => {
-    const response = await axios.get('http://api.citybik.es/v2/networks')
-    return response.data
-}
-
 //export const createRoute = async (dispatch, bikeroute) => {
 //    const response = await axios.post('https://cs4550-final-node.herokuapp.com/api/routes', bikeroute);
 //    dispatch({

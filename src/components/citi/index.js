@@ -11,7 +11,7 @@ const store = createStore(reducer);
 const Citi = () => {
     return (
         <Provider store={store}>
-            <nav className="navbar navbar-light bg-white flex-fill rounded-bottom">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary flex-fill rounded-bottom">
                 <div className="container-fluid float-end d-flex flex-row align-items-start">
                     <div className="row">
                         <a className="navbar-brand">APP_NAME</a>

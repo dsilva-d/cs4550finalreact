@@ -1,6 +1,7 @@
 //import * as service from '../services/routesService';
 
 import * as service from '../services/routesService';
+import * as citybikesService from "../services/citybikesService"
 
 //export const CREATE_ROUTE = 'CREATE_ROUTE';
 export const FIND_ALL_ROUTES = 'FIND_ALL_ROUTES';
@@ -22,8 +23,8 @@ export const findAllRoutesAction = async (dispatch) => {
         bikeroutes: routes
     });
 }
-export const findNetworkByNameAction = async (dispatch) => {
-    const networks = await service.findNetworkById();
+export const findAllNetworksAction = async (dispatch) => {
+    const networks = await citybikesService.findNetworkById();
     dispatch({
         type: FIND_NETWORK,
         bikeshareNetworks: networks

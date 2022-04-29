@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
-import {findAllRoutesAction, findNetworkByNameAction} from "../../actions/routeActions";
-import {Provider, useDispatch, useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {findAllNetworksAction} from "../../actions/routeActions";
+import {useDispatch, useSelector} from "react-redux";
 import routesReducer from "../reducer/routesReducer";
 import {createStore} from "redux";
+import axios from "axios";
 
 const reducer = routesReducer;
 const store = createStore(reducer);
@@ -14,10 +15,10 @@ const Results = (    {
     const networks = useSelector(state => state.networks);
     const dispatch = useDispatch();
     useEffect(() => {
-        findNetworkByNameAction(dispatch)
+        findAllNetworksAction(dispatch)
     }, [dispatch]);
-    return <Provider store={store}>
-        <>
+    console.log(networks)
+    return <>
             <div>
                 {networks && networks.filter(network => cityName === network.location.city).map(network =>
                     <>
@@ -32,7 +33,6 @@ const Results = (    {
             </div>
 
         </>
-    </Provider>
 }
 
 export default Results;

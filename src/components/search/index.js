@@ -1,35 +1,31 @@
-import React, {useEffect, useState} from "react";
-import {findAllRoutesAction, findNetworkByNameAction} from "../../actions/routeActions";
-import {Provider, useDispatch, useSelector} from "react-redux";
-import routesReducer from "../reducer/routesReducer";
-import {createStore} from "redux";
 import Results from "./filteredResults"
-
-const reducer = routesReducer;
-const store = createStore(reducer);
+import {useEffect, useRef, useState} from "react";
 
 const Search = () => {
-
-    const networks = useSelector(state => state.networks);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        // findAllRoutesAction(dispatch)
-        findNetworkByNameAction(dispatch)
-    }, [dispatch]);
-    // console.log(networks.filter(network => "Boston,MA" === network.location.city))
-    return <Provider store={store}>
-        <>
+    const [city, setCityName] = useState('Boston, MA')
+    const userInputCityName = useRef()
+    console.log(userInputCityName)
+    console.log(city)
+    return <>
+        <ul className="list-group">
             <div className="input-group input-group-lg pt-2">
-                <input type="text" className="form-control" placeholder="Enter a city"
-                       aria-label="Location" aria-describedby="basic-addon2"/>
-                <a href="search" className="btn btn-primary" type="button" id="button-addon2">Find Routes</a>
+                {/*<input type="text" className="form-control" placeholder="Enter a city"*/}
+                {/*       aria-label="Location" aria-describedby="basic-addon2"/>*/}
+                {/*<a href="search" className="btn btn-primary" onClick={searchCity} type="button" id="button-addon2">Find Routes</a>*/}
+                <button
+                    onClick={() => setCityName(userInputCityName.current.value)}
+                    className="btn btn-primary float-end">
+                    Search
+                </button>
+                <input ref={userInputCityName}
+                       className="form-control w-75"/>
             </div>
             <div>
-                <Results cityName={"Vancouver"}/>
+                <Results cityName={city}/>
             </div>
+        </ul>
+    </>
 
-        </>
-    </Provider>
 }
 
 export default Search;
