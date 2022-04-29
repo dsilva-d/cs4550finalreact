@@ -1,47 +1,31 @@
-import React, {useEffect, useState} from "react";
-import {findAllRoutesAction} from "../../actions/routeActions";
-import {Provider, useDispatch, useSelector} from "react-redux";
-import routesReducer from "../reducer/routesReducer";
-import {createStore} from "redux";
-
-const reducer = routesReducer;
-const store = createStore(reducer);
+import Results from "./filteredResults"
+import {useEffect, useRef, useState} from "react";
 
 const Search = () => {
-
-    const bikeroutes = useSelector(state => state);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        findAllRoutesAction(dispatch)
-    }, [dispatch]);
-    console.log(bikeroutes);
-    return <Provider store={store}>
-        <>
-
-            <div>
-
-
+    const [city, setCityName] = useState('Boston, MA')
+    const userInputCityName = useRef()
+    console.log(userInputCityName)
+    console.log(city)
+    return <>
+        <ul className="list-group">
+            <div className="input-group input-group-lg pt-2">
+                {/*<input type="text" className="form-control" placeholder="Enter a city"*/}
+                {/*       aria-label="Location" aria-describedby="basic-addon2"/>*/}
+                {/*<a href="search" className="btn btn-primary" onClick={searchCity} type="button" id="button-addon2">Find Routes</a>*/}
+                <button
+                    onClick={() => setCityName(userInputCityName.current.value)}
+                    className="btn btn-primary float-end">
+                    Search
+                </button>
+                <input ref={userInputCityName}
+                       className="form-control w-75"/>
             </div>
             <div>
-                {bikeroutes && bikeroutes.map(bikeroutes =>
-                    <>
-                        <p className={`p-0 m-0`}>
-                        <span
-                            className={`text-white fw-bold`}>{bikeroutes.routeName}
-                        </span>
-                        </p>
-                        <p className={`fw-bold p-0 m-0`}>{bikeroutes.origin.stationName} -> {bikeroutes.destination.stationName}</p>
-                    </>
-                )}
+                <Results cityName={city}/>
             </div>
+        </ul>
+    </>
 
-        </>
-    </Provider>
 }
-// return (
-//   <a href="search.html"
-//   className={`btn btn-primary btn-block rounded-pill`}>
-//   Search <i className={`fa fa-solid fa-search`}/> </a>
-// );
 
 export default Search;
