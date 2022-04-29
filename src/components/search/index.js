@@ -16,7 +16,7 @@ const Search = () => {
         // findAllRoutesAction(dispatch)
         findNetworkByNameAction(dispatch)
     }, [dispatch]);
-    console.log(networks)
+    // console.log(networks.filter(network => "Boston,MA" === network.location.city))
     return <Provider store={store}>
         <>
             <div className="input-group input-group-lg pt-2">
@@ -25,17 +25,7 @@ const Search = () => {
                 <a href="search" className="btn btn-primary" type="button" id="button-addon2">Find Routes</a>
             </div>
             <div>
-                <Results cityName={"Boston"}/>
-                {/*{networks && networks.map(network =>*/}
-                {/*    <>*/}
-                {/*        <p className={`p-0 m-0`}>*/}
-                {/*        <span*/}
-                {/*            className={`text-white fw-bold`}>{network.location.city}*/}
-                {/*        </span>*/}
-                {/*        </p>*/}
-                {/*        <p className={`fw-bold p-0 m-0`}>ID: {network.id}, Name: {network.name}</p>*/}
-                {/*    </>*/}
-                {/*)}*/}
+                <Results cityName={"Vancouver"}/>
             </div>
 
         </>

@@ -7,7 +7,7 @@ export const findAllRoutes = async () => {
 }
 
 export const findNetworkById = async () => {
-    const response = await axios.get('http://api.citybik.es/v2/networks?fields=id,name,href,location')
+    const response = await axios.get('http://api.citybik.es/v2/networks')
     return response.data
 }
 

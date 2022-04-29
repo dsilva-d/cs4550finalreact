@@ -7,15 +7,15 @@ import {createStore} from "redux";
 const reducer = routesReducer;
 const store = createStore(reducer);
 
-const Results = (cityName) => {
+const Results = (    {
+                         cityName = 'Boston, MA'
+                     }) => {
 
     const networks = useSelector(state => state.networks);
     const dispatch = useDispatch();
     useEffect(() => {
-        // findAllRoutesAction(dispatch)
         findNetworkByNameAction(dispatch)
     }, [dispatch]);
-    console.log(networks)
     return <Provider store={store}>
         <>
             <div>
