@@ -7,12 +7,11 @@ const Results = ({
                      cityName = 'Boston, MA'
                  }) => {
 
-    const networks = useSelector(state => state.routes);
+    const networks = useSelector(state => state.searchReducer);
     const dispatch = useDispatch();
     useEffect(() => {
         findAllNetworksAction(dispatch)
     }, [dispatch]);
-    console.log(networks.networks)
     return <>
         <div>
             {networks.networks && networks.networks.filter(network => cityName === network.location.city).map(network =>

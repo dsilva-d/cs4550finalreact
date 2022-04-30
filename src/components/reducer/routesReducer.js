@@ -1,12 +1,12 @@
-import {FIND_NETWORK}
+import {FIND_STATIONS}
     from "../../actions/routeActions";
 
-const routesReducer = (state = [], action) => {
+const stationsReducer = (state = [], action) => {
     switch (action.type) {
-        case FIND_NETWORK:
-            return action.networks
+        case FIND_STATIONS:
+            return action.networkInfo
         default:
             return state;
     }
 }
-export default routesReducer;
+export default stationsReducer;
