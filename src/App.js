@@ -22,6 +22,7 @@ function App() {
                         <Route path="/">
                             <Route index element={<Citi/>}/>
                             <Route path="search" element={<Search/>}/>
+                            <Route path="search/:currentcity" element={<Search/>}/>
                             <Route path="profile" element={<Profile/>}/>
                             <Route path="details/:networkId" element={<DetailsRoute/>}/>
                             <Route path="/signin" element={<Signin/>}/>
