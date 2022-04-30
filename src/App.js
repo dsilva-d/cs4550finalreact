@@ -9,23 +9,30 @@ import Citi from "./components/citi"
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import DetailsRoute from "./components/details";
+import Signin from "./components/signin";
+import {ProfileProvider} from "./contexts/profileContext";
+import Signup from "./components/signup";
 
 function App() {
-  return (
-  <BrowserRouter>
-      <div className="container">
-        <Routes>
-            <Route path="/">
-                <Route index element={<Citi/>}/>
-                <Route path="search" element={<Search/>}/>
-                <Route path="search/:currentcity" element={<Search/>}/>
-                <Route path="profile" element={<Profile/>}/>
-                <Route path="details/:networkId" element={<DetailsRoute/>}/>
-            </Route>
-        </Routes>
-      </div>
-  </BrowserRouter>
-  );
+    return (
+        <ProfileProvider>
+            <BrowserRouter>
+                <div className="container">
+                    <Routes>
+                        <Route path="/">
+                            <Route index element={<Citi/>}/>
+                            <Route path="search" element={<Search/>}/>
+                            <Route path="search/:currentcity" element={<Search/>}/>
+                            <Route path="profile" element={<Profile/>}/>
+                            <Route path="details/:networkId" element={<DetailsRoute/>}/>
+                            <Route path="/signin" element={<Signin/>}/>
+                            <Route path="/signup" element={<Signup/>}/>
+                        </Route>
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </ProfileProvider>
+    );
 }
 
 export default App;
