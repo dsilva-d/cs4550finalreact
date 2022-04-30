@@ -8,6 +8,7 @@ import Profile from "./components/citi/profile";
 import Citi from "./components/citi"
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import DetailsRoute from "./components/details";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                 <Route index element={<Citi/>}/>
                 <Route path="search" element={<Search/>}/>
                 <Route path="profile" element={<Profile/>}/>
+                <Route path="details/:networkId" element={<DetailsRoute/>}/>
             </Route>
         </Routes>
       </div>

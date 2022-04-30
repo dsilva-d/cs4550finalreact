@@ -6,6 +6,7 @@ import * as citybikesService from "../services/citybikesService"
 //export const CREATE_ROUTE = 'CREATE_ROUTE';
 export const FIND_ALL_ROUTES = 'FIND_ALL_ROUTES';
 export const FIND_NETWORK = 'FIND_NETWORK';
+export const FIND_STATIONS = 'FIND_STATIONS'
 //export const UPDATE_ROUTE = 'UPDATE_ROUTE';
 //export const DELETE_ROUTE = 'DELETE_ROUTE';
 
@@ -29,6 +30,15 @@ export const findAllNetworksAction = async (dispatch) => {
         type: FIND_NETWORK,
         bikeshareNetworks: networks
     })
+}
+
+export const findStationsInNetworkAction = async (networkId) => {
+    const networkDetails = await citybikesService.findStationsInNetwork(networkId);
+    return networkDetails.data;
+    // dispatch({
+    //     type: FIND_STATIONS,
+    //     bikeshareStations: networkDetails
+    // })
 }
 //export const updateRoute = async (dispatch, route) => {
 //    const status = await service.updateRoute(route);
