@@ -19,7 +19,7 @@ const Citi = () => {
                     </div>
                     <div className="row">
                         <div className="container-fluid d-flex flex-row-reverse">
-                            <a className="nav-link d-flex" href="login">Log In</a>
+                            <a className="nav-link d-flex" href="signin">Log In</a>
                             <a className="nav-link d-flex" href="signup">Sign Up</a>
                         </div>
                     </div>
