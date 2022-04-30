@@ -4,8 +4,6 @@ import {useEffect, useRef, useState} from "react";
 const Search = () => {
     const [city, setCityName] = useState('Boston, MA')
     const userInputCityName = useRef()
-    console.log(userInputCityName)
-    console.log(city)
     return <>
         <ul className="list-group">
             <div className="input-group input-group-lg pt-2">

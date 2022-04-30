@@ -6,6 +6,11 @@ export const findAllRoutes = async () => {
     return response.data;
 }
 
+export const findCityRoutes = async (networkID) => {
+    const response = await axios.get(`https://cs4550-final-node.herokuapp.com/api/routes/${networkID}`)
+    return response.data;
+}
+
 //export const createRoute = async (dispatch, bikeroute) => {
 //    const response = await axios.post('https://cs4550-final-node.herokuapp.com/api/routes', bikeroute);
 //    dispatch({

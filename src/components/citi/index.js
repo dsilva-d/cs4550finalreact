@@ -1,12 +1,13 @@
 import {Outlet} from "react-router-dom"
-import routesReducer from "../reducer/routesReducer";
+import searchReducer from "../reducer/searchReducer";
+import stationsReducer from "../reducer/stationsReducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import logo from './images/citi.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+const combinedReducers = combineReducers({networks: searchReducer, stationList: stationsReducer});
 
-const reducer = routesReducer;
-const store = createStore(reducer);
+const store = createStore(combinedReducers);
 
 const Citi = () => {
     return (

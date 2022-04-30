@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import routesReducer from "../src/components/reducer/routesReducer";
+import searchReducer from "./components/reducer/searchReducer";
+import stationsReducer from "../src/components/reducer/stationsReducer";
+import routesReducer from "../src/components/reducer/routesReducer"
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
-const reducer = routesReducer;
-const store = createStore(reducer);
+const combinedReducers = combineReducers({searchReducer, stationsReducer, routesReducer});
+const store = createStore(combinedReducers);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
