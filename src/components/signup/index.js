@@ -15,7 +15,7 @@ const Signup = () => {
             )
             navigate('/profile')
         } catch (e) {
-            alert('oops')
+            alert('Error: ')
         }
     }
     return (

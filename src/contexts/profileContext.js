@@ -28,9 +28,11 @@ export const ProfileProvider = ({children}) => {
 
     const signup = async (email, password) => {
         try {
+            console.log('email: ' + email + ', password: ' + password)
             const response = await api
                 .post("https://cs4550-final-node.herokuapp.com/api/signup",
                     { email, password })
+            console.log('response: ' + response)
             setProfile(response.data)
         } catch (e) { throw e }
     }

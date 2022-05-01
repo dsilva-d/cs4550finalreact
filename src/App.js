@@ -12,6 +12,7 @@ import DetailsRoute from "./components/details";
 import Signin from "./components/signin";
 import {ProfileProvider} from "./contexts/profileContext";
 import Signup from "./components/signup";
+import SecureRoute from "./components/secure-route";
 
 function App() {
     return (
@@ -23,7 +24,8 @@ function App() {
                             <Route index element={<Citi/>}/>
                             <Route path="search" element={<Search/>}/>
                             <Route path="search/:currentcity" element={<Search/>}/>
-                            <Route path="profile" element={<Profile/>}/>
+
+                            <Route path="profile" element={<SecureRoute><Profile/></SecureRoute>}/>
                             <Route path="profile/:pid" element={<Profile/>}/>
                             <Route path="details/:networkId" element={<DetailsRoute/>}/>
                             <Route path="/signin" element={<Signin/>}/>

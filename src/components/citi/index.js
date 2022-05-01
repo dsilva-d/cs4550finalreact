@@ -5,7 +5,9 @@ import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import logo from './images/citi.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import SecureContent from '../secure-content'
 const combinedReducers = combineReducers({networks: searchReducer, stationList: stationsReducer});
+
 
 const store = createStore(combinedReducers);
 
@@ -19,8 +21,10 @@ const Citi = () => {
                     </div>
                     <div className="row">
                         <div className="container-fluid d-flex flex-row-reverse">
-                            <a className="nav-link d-flex" href="signin">Log In</a>
-                            <a className="nav-link d-flex" href="signup">Sign Up</a>
+                            <SecureContent>
+                                <a className="nav-link d-flex" href="signin">Log In</a>
+                                <a className="nav-link d-flex" href="signup">Sign Up</a>
+                            </SecureContent>
                         </div>
                     </div>
                 </div>
