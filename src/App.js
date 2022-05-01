@@ -13,6 +13,7 @@ import Signin from "./components/signin";
 import {ProfileProvider} from "./contexts/profileContext";
 import Signup from "./components/signup";
 import SecureRoute from "./components/secure-route";
+import UserList from "./components/user-list";
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                             <Route path="details/:networkId" element={<DetailsRoute/>}/>
                             <Route path="/signin" element={<Signin/>}/>
                             <Route path="/signup" element={<Signup/>}/>
+                            <Route path="/userlist" element={<UserList/>}/>
                         </Route>
                     </Routes>
                 </div>
