@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {useProfile} from "../../../contexts/profileContext";
 // import {findCommentsByUserId} from "../services/movie-service";
 
@@ -8,6 +8,7 @@ const Profile = () => {
   const navigate = useNavigate()
   const {profile, signout} = useProfile()
   // const [comments, setComments] = useState([])
+  const pid = useParams()
 
   const logout = async () => {
     try {
@@ -30,15 +31,15 @@ const Profile = () => {
   return (
       <div>
         <h1>Profile</h1>
-        <button
-            onClick={logout}
-            className="btn btn-danger">
-          Logout
-        </button>
+
+
         {profile && profile.username}
         <Link to="/search">
           Search routes
         </Link>
+        <button onClick={logout} className="btn btn-danger">
+            Logout
+        </button>
 
         {/*{JSON.stringify(comments)}*/}
 

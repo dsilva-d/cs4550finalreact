@@ -9,11 +9,12 @@ const Signin = () => {
     const {signin} = useProfile()
     const handleSigninBtn = async () => {
         try {
-            await signin(
+            const prof = await signin(
                 emailRef.current.value,
                 passwordRef.current.value
             )
-            navigate('/profile')
+            const pId = JSON.parse(JSON.stringify(prof))["_id"]
+            navigate('/profile/' + pId)
         } catch (e) {
             alert('oops')
         }

@@ -42,6 +42,7 @@ export const ProfileProvider = ({children}) => {
                 .post("https://cs4550-final-node.herokuapp.com/api/signin",
                     {email, password})
             setProfile(response.data)
+            return response.data
         } catch (e) {
             throw e
         }

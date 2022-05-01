@@ -24,6 +24,7 @@ function App() {
                             <Route path="search" element={<Search/>}/>
                             <Route path="search/:currentcity" element={<Search/>}/>
                             <Route path="profile" element={<Profile/>}/>
+                            <Route path="profile/:pid" element={<Profile/>}/>
                             <Route path="details/:networkId" element={<DetailsRoute/>}/>
                             <Route path="/signin" element={<Signin/>}/>
                             <Route path="/signup" element={<Signup/>}/>
