@@ -4,10 +4,12 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 const DetailsRoute = () => {
-    // const [networkDetails, setNetworkDetails] = useState([])
-    // const [routeDetails, setRouteDetails] = useState({})
+
+
     const {networkId} = useParams();
     const dispatch = useDispatch();
+
+    const profileRoutes = window.location.pathname.includes('routes')
 
     const networkInfo = useSelector(state => state.routesReducer);
     const routeInfo = useSelector(state => state.stationsReducer);
@@ -16,19 +18,21 @@ const DetailsRoute = () => {
 
     useEffect(() => {
 
-        if(window.location.pathname.includes('routes')) {
+        if(profileRoutes) {
             findAllRoutesAction(dispatch)
         } else {
             findStationsInNetworkAction(dispatch, networkId)
             findRoutesAction(dispatch, networkId)
         }
-
     }, [dispatch])
 
-    console.log(allRoutes)
+    console.log('profileRoutes: ' + profileRoutes)
+    console.log('networkinfo: ' + networkInfo)
+    console.log('routeinfo: ' + routeInfo)
+    console.log('allRoutes: ' + allRoutes)
 
 
-    if(window.location.pathname.includes('routes')) {
+    if(profileRoutes) {
         const username = window.location.pathname.substring(16, window.location.pathname.length)
         if(allRoutes.filter(routeTile => username === routeTile.postedBy.username).length === 0) {
             return <>

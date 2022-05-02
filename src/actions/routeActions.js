@@ -36,7 +36,7 @@ export const findAllNetworksAction = async (dispatch) => {
 export const findStationsInNetworkAction = async (dispatch, networkId) => {
     const networkInfo = await citybikesService.findStationsInNetwork(networkId);
     dispatch({
-        type: FIND_STATIONS,
+        type: FIND_ROUTES,
         networkInfo: networkInfo
     })
 }
@@ -44,7 +44,7 @@ export const findStationsInNetworkAction = async (dispatch, networkId) => {
 export const findRoutesAction = async (dispatch, city) => {
     const routeInfo = await service.findCityRoutes(city);
     dispatch({
-        type: FIND_ROUTES,
+        type: FIND_STATIONS,
         routeInfo: routeInfo
     })
 }
