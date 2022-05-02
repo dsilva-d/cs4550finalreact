@@ -5,6 +5,7 @@ import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import logo from './images/citi.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import SecureContent from "../secureContent";
 const combinedReducers = combineReducers({networks: searchReducer, stationList: stationsReducer});
 
 const store = createStore(combinedReducers);
@@ -26,9 +27,11 @@ const Citi = () => {
                 </div>
             </nav>
             {/*Banner image, can use personal design*/}
+            <SecureContent>
             <div className="w-100 pt-2">
                 <img src={logo} className="img-fluid rounded"/>
             </div>
+            </SecureContent>
             {/*Search bar can be its own component*/}
             <div>
                 <div className="input-group input-group-lg pt-2">

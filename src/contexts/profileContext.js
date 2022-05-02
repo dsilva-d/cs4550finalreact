@@ -12,6 +12,7 @@ export const ProfileProvider = ({children}) => {
     const signout = async () => {
         const response = await api
             .post("https://cs4550-final-node.herokuapp.com/api/signout")
+                // "https://localhost:4000/api/signout")
         setProfile(null)
     }
 
@@ -19,6 +20,7 @@ export const ProfileProvider = ({children}) => {
         try {
             const response = await api
                 .post("https://cs4550-final-node.herokuapp.com/api/profile")
+                    // "https://localhost:4000/api/profile")
             setProfile(response.data)
             return response.data
         } catch (e) {
@@ -30,6 +32,7 @@ export const ProfileProvider = ({children}) => {
         try {
             const response = await api
                 .post("https://cs4550-final-node.herokuapp.com/api/signup",
+                    // "https://localhost:4000/api/signup",
                     { email, password })
             setProfile(response.data)
         } catch (e) { throw e }
@@ -40,6 +43,7 @@ export const ProfileProvider = ({children}) => {
         try {
             const response = await api
                 .post("https://cs4550-final-node.herokuapp.com/api/signin",
+                    // "https://localhost:4000/api/signin",
                     {email, password})
             setProfile(response.data)
         } catch (e) {

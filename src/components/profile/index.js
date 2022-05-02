@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import {useProfile} from "../../../contexts/profileContext";
+import {useProfile} from "../../contexts/profileContext";
 // import {findCommentsByUserId} from "../services/movie-service";
 
 
@@ -18,13 +18,14 @@ const Profile = () => {
     navigate('/signin')
   }
 
-  // const findMyComments = async () => {
-  //   const comments = await findCommentsByUserId(profile._id)
-  //   setComments(comments)
-  // }
+  /*
+  A user profile should show a list of routes created by that user. Each route indicates which user made it by ID (see
+  the field postedBy.uid in a route mongodb document to know the ID of the user that made the route). So we need to
+     get the routes and filter on the profile page, so only routes with matching uids are dispalyed. See the findMyRoutes
+     method in useEffect below as a starting point. Maybe do useState to keep track of routes.*/
 
   useEffect(() => {
-    // findMyComments()
+    // findMyRoutes()
   }, [])
 
   return (

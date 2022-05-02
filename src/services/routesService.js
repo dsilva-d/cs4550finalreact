@@ -3,11 +3,15 @@ import axios from "axios";
 
 export const findAllRoutes = async () => {
     const response = await axios.get('https://cs4550-final-node.herokuapp.com/api/routes');
+    // const response = await axios.get('https://localhost:4000/api/routes');
+
     return response.data;
 }
 
 export const findCityRoutes = async (networkID) => {
     const response = await axios.get(`https://cs4550-final-node.herokuapp.com/api/routes/${networkID}`)
+    // const response = await axios.get(`https://localhost:4000/api/routes/api/routes/${networkID}`)
+
     return response.data;
 }
 
