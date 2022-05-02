@@ -5,8 +5,9 @@ import * as citybikesService from "../services/citybikesService"
 
 //export const CREATE_ROUTE = 'CREATE_ROUTE';
 export const FIND_NETWORK = 'FIND_NETWORK';
-export const FIND_STATIONS = 'FIND_STATIONS'
-export const FIND_ROUTES = 'FIND_ROUTES'
+export const FIND_STATIONS = 'FIND_STATIONS';
+export const FIND_ROUTES = 'FIND_ROUTES';
+export const FIND_ALL_ROUTES = 'FIND_ALL_ROUTES';
 //export const UPDATE_ROUTE = 'UPDATE_ROUTE';
 //export const DELETE_ROUTE = 'DELETE_ROUTE';
 
@@ -48,15 +49,13 @@ export const findRoutesAction = async (dispatch, city) => {
     })
 }
 
-export const findAllRoutes = async (dispatch) => {
+export const findAllRoutesAction = async (dispatch) => {
     const allRoutes = await service.findAllRoutes();
     dispatch({
-        type: FIND_ROUTES,
+        type: FIND_ALL_ROUTES,
         allRoutes: allRoutes
     })
 }
-
-
 // export const updateRoute = async (dispatch, route) => {
 //    const status = await service.updateRoute(route);
 //    dispatch({
@@ -71,3 +70,4 @@ export const findAllRoutes = async (dispatch) => {
 //        route
 //    })
 // }
+

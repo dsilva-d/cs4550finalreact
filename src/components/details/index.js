@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
-import {findRoutesAction, findStationsInNetworkAction, findAllRoutes} from "../../actions/routeActions";
+import {findRoutesAction, findStationsInNetworkAction, findAllRoutesAction} from "../../actions/routeActions";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -8,27 +8,42 @@ const DetailsRoute = () => {
     // const [routeDetails, setRouteDetails] = useState({})
     const {networkId} = useParams();
     const dispatch = useDispatch();
+
     const networkInfo = useSelector(state => state.routesReducer);
     const routeInfo = useSelector(state => state.stationsReducer);
-    //const allRoutes = useSelector(state => state.routesReducer);
+    const allRoutes = useSelector(state => state.routesReducer);
+
 
     useEffect(() => {
-        findStationsInNetworkAction(dispatch, networkId)
-        findRoutesAction(dispatch, networkId)
-        //findAllRoutes(dispatch)
+
+        if(window.location.pathname.includes('routes')) {
+            findAllRoutesAction(dispatch)
+        } else {
+            findStationsInNetworkAction(dispatch, networkId)
+            findRoutesAction(dispatch, networkId)
+        }
+
     }, [dispatch])
 
-    //console.log(allRoutes)
+    console.log(allRoutes)
+
 
     if(window.location.pathname.includes('routes')) {
-        /*const username = window.location.pathname.substring(16, window.location.pathname.length)
+        const username = window.location.pathname.substring(16, window.location.pathname.length)
+        if(allRoutes.filter(routeTile => username === routeTile.postedBy.username).length === 0) {
+            return <>
+                <div className="d-flex flex-column justify-content-center align-items-center">
+                    <h3>{username} has no routes!</h3>
+                </div>
+            </>
+        } else {
         return <>
-        <div className="pb-10">
+            <div className="pb-10">
                         <div className="d-flex flex-column justify-content-center align-items-center">
                             <h3>Routes taken by {username}:</h3>
                         </div>
                         <div className="d-flex row container-fluid justify-content-center">
-                            {allRoutes && allRoutes.map(routeTile =>
+                            {allRoutes && allRoutes.filter(routeTile => username === routeTile.postedBy.username).map(routeTile =>
                                 <div className="p-1 mb-2 container-fluid row bg-info rounded">
                                     <h5>{routeTile.routeName}</h5>
                                     <div className="row">
@@ -51,12 +66,11 @@ const DetailsRoute = () => {
                                 </div>)}
                         </div>
             </div>
-        </>*/
+        </>
+        }
+
     } else {
-    console.log('Searching!')
     return (
-
-
         <>
             <div className="pb-10">
                 <div className="d-flex flex-column justify-content-center align-items-center">
