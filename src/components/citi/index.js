@@ -47,7 +47,7 @@ const Citi = () => {
                 </div>
                 <div className="card text-center" style={{"width": "24rem"}}>
                     <div className="card-body">
-                        <FontAwesomeIcon icon="fa-solid fa-person-running" />
+                        <i className="fa fa-running fa-5x"/>
                     </div>
                     <a href="routes/run" className="btn btn-primary">Plan a run</a>
                 </div>

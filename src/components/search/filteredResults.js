@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 const Results = ({
-                     cityName = 'Boston, MA'
+                     cityName = 'Boston, MA', profile = ''
                  }) => {
 
     const networks = useSelector(state => state.searchReducer);
@@ -27,7 +27,6 @@ const Results = ({
                 </>
             )}
         </div>
-
     </>
 }
 

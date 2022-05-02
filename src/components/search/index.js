@@ -13,7 +13,7 @@ const Search = () => {
         localStorage.setItem('city', city)
     }, [city])
 
-    return <>
+        return <>
         <ul className="list-group">
             <div className="input-group input-group-lg pt-2">
                 {/*<input type="text" className="form-control" placeholder="Enter a city"*/}

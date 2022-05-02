@@ -47,6 +47,16 @@ export const findRoutesAction = async (dispatch, city) => {
         routeInfo: routeInfo
     })
 }
+
+export const findAllRoutes = async (dispatch) => {
+    const allRoutes = await service.findAllRoutes();
+    dispatch({
+        type: FIND_ROUTES,
+        allRoutes: allRoutes
+    })
+}
+
+
 // export const updateRoute = async (dispatch, route) => {
 //    const status = await service.updateRoute(route);
 //    dispatch({

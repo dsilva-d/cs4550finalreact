@@ -4,7 +4,7 @@ import {FIND_NETWORK}
 const searchReducer = (state = [], action) => {
     switch (action.type) {
         case FIND_NETWORK:
-            return action.networks
+            return action.networks;
         default:
             return state;
     }

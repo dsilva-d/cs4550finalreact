@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {useProfile} from "../../../contexts/profileContext";
-// import {findCommentsByUserId} from "../services/movie-service";
-
 
 const Profile = () => {
   const navigate = useNavigate()
   const {profile, signout} = useProfile()
-  // const [comments, setComments] = useState([])
+  const storedProfile = localStorage.getItem('profile')
+  const [showAge, setShowAge] = useState(true)
+  const [profileState, setProfileState] = useState(profile)
+  {console.log('profile: ' + JSON.stringify(profileState))}
+  const pid = useParams()
+
 
   const logout = async () => {
     try {
@@ -18,27 +21,32 @@ const Profile = () => {
     navigate('/signin')
   }
 
-  // const findMyComments = async () => {
-  //   const comments = await findCommentsByUserId(profile._id)
-  //   setComments(comments)
-  // }
-
   useEffect(() => {
-    // findMyComments()
-  }, [])
+    localStorage.setItem('profile', profileState)
+  }, [profileState])
+  console.log('profile stored: ' + profileState)
 
+  if(showAge) {
   return (
       <div>
         <h1>Profile</h1>
-        <button
-            onClick={logout}
-            className="btn btn-danger">
-          Logout
+        <h3> Welcome {profileState && profileState.firstName}! </h3>
+
+        <h6> Age: {profileState.age} </h6>
+
+        <button className="btn btn-light" onClick={() => setShowAge(!showAge)}>
+            {`Show Age: ${showAge ? 'on' : 'off'}`}
         </button>
-        {profile && profile.username}
-        <Link to="/search">
+
+
+
+            <Link to={"/details/routes/" + profile.username}>
           Search routes
         </Link>
+
+        <button onClick={logout} className="btn btn-danger">
+            Logout
+        </button>
 
         {/*{JSON.stringify(comments)}*/}
 
@@ -54,8 +62,31 @@ const Profile = () => {
         {/*      )*/}
         {/*  }*/}
         {/*</ul>*/}
+        {
+}
       </div>
   );
+  } else {
+
+      return (
+          <div>
+            <h1>Profile</h1>
+            <h3> Welcome {profile && profile.firstName}! </h3>
+
+            <button className="btn btn-dark" onClick={() => setShowAge(!showAge)}>
+                {`Show Age: ${showAge ? 'on' : 'off'}`}
+            </button>
+
+            <Link to={"/details/routes/" + profile.username}>
+              Search routes
+            </Link>
+
+            <button onClick={logout} className="btn btn-danger">
+                Logout
+            </button>
+          </div>
+      );
+  }
 };
 
 export default Profile;
